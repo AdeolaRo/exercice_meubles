@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des Meubles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<div class="container py-5">
+    <h1 class="mb-4">Liste des Meubles</h1>
+
+    <div class="mb-3">
+        <a class="btn btn-primary" th:href="@{/furniture/add}">Ajouter un nouveau meuble</a>
+    </div>
+
+    <table class="table table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>#Id</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Prix</th>
+            <th>Stock</th>
+            <th>Gestions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="furniture : ${furnitures}">
+            <td th:text="${furniture.id}"></td>
+            <td th:text="${furniture.name}"></td>
+            <td th:text="${furniture.description}"></td>
+            <td th:text="${furniture.price}"></td>
+            <td th:text="${furniture.stock}"></td>
+            <td>
+                <a class="btn btn-success btn-sm" th:href="@{/cart/add/{id}(id=${furniture.id})}">Ajout au panier</a>
+                <a class="btn btn-warning btn-sm" th:href="@{/furniture/update/{id}(id=${furniture.id})}">Mise à jour</a>
+                <a class="btn btn-danger btn-sm" th:href="@{/furniture/delete/{id}(id=${furniture.id})}">Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="mt-4">
+        <a class="btn btn-secondary" th:href="@{/}">Accueil</a>
+    </div>
+</div>
+
+</body>
+</html>
