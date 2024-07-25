@@ -9,7 +9,7 @@
     <h1 class="mb-4">Liste des Meubles</h1>
 
     <div class="mb-3">
-        <a class="btn btn-primary" th:href="@{/furniture/add}">Ajouter un nouveau meuble</a>
+        <a class="btn btn-info" th:href="@{/furniture/add}">Ajouter un meuble</a>
     </div>
 
     <table class="table table-striped">
@@ -18,7 +18,7 @@
             <th>#Id</th>
             <th>Nom</th>
             <th>Description</th>
-            <th>Prix</th>
+            <th>Prix en Euro</th>
             <th>Stock</th>
             <th>Gestions</th>
         </tr>
@@ -31,8 +31,8 @@
             <td th:text="${furniture.price}"></td>
             <td th:text="${furniture.stock}"></td>
             <td>
-                <a class="btn btn-success btn-sm" th:href="@{/cart/add/{id}(id=${furniture.id})}">Ajout au panier</a>
-                <a class="btn btn-warning btn-sm" th:href="@{/furniture/update/{id}(id=${furniture.id})}">Mise à jour</a>
+                <a class="btn btn-info btn-sm" th:href="@{/cart/add/{id}(id=${furniture.id})}">Prendre</a>
+                <a class="btn btn-dark btn-sm" th:href="@{/furniture/update/{id}(id=${furniture.id})}">Mise à jour</a>
                 <a class="btn btn-danger btn-sm" th:href="@{/furniture/delete/{id}(id=${furniture.id})}">Supprimer</a>
             </td>
         </tr>

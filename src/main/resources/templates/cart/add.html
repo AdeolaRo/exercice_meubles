@@ -13,11 +13,16 @@
 
         <div class="col-md-4">
             <label for="quantity" class="form-label">Quantité :</label>
-            <input type="number" class="form-control" id="quantity" name="quantity" min="0" th:max="${quantity}" required/>
+            <input type="number" class="form-control" id="quantity" name="quantity" min="1" th:max="${quantity}" required/>
         </div>
 
+
         <div class="col-12">
+            <form th:if="${stock} > 0" th:action="@{/cart/add}" method="post">
+                <input type="hidden" name="id" th:value="${furnitureId}" />
             <button type="submit" class="btn btn-primary">Ajouter au panier</button>
+            </form>
+
             <a class="btn btn-secondary" th:href="@{/furniture/list}">Retour aux meubles</a>
         </div>
     </form>

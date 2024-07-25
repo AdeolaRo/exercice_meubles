@@ -33,7 +33,7 @@ public class FurnitureController {
     }
 
     @GetMapping("/furniture/update/{id}")
-    public String editFurniture(@PathVariable int id, Model model) {
+    public String updateFurniture(@PathVariable int id, Model model) {
         Furniture furniture = furnitureService.getFurnitureById(id);
         if (furniture != null) {
             model.addAttribute("furniture", furniture);

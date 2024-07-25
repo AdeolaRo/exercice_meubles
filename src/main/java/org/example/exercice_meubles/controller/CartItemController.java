@@ -29,6 +29,7 @@ public class CartItemController {
     public String addToCart(@PathVariable int furnitureId, Model model) {
         model.addAttribute("furnitureId", furnitureId);
         model.addAttribute("quantity", furnitureService.getFurnitureById(furnitureId).getStock());
+        model.addAttribute("stock", furnitureService.getFurnitureById(furnitureId).getStock());
         model.addAttribute("cartItem", new CartItem());
         return "cart/add";
     }

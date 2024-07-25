@@ -22,13 +22,13 @@
         </div>
 
         <div class="col-md-4">
-            <label for="price" class="form-label">Prix:</label>
-            <input type="number" class="form-control" id="price" step="0.01" th:field="*{price}" required/>
+            <label for="price" class="form-label">Prix en Euro</label>
+            <input type="number" class="form-control" id="price" step="0.01" th:field="*{price}" min="0.0" required/>
         </div>
 
         <div class="col-md-4">
             <label for="stock" class="form-label">Stock:</label>
-            <input type="number" class="form-control" id="stock" th:field="*{stock}" required/>
+            <input type="number" class="form-control" id="stock" th:field="*{stock}" min="0" required/>
         </div>
 
         <div class="col-12">
